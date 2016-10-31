@@ -1,5 +1,17 @@
 <% if current_user %>
-  links go here
+
+  <p>Submit a link</p>
+
+<%= form_for :link, url: links_path do |f| %>
+  <%= f.label :url, class: "text-center" %><br>
+  <%= f.text_field :url, placeholder: "http://www.example.com" %><br>
+
+  <%= f.label :title, "Title", class: "text-center" %><br>
+  <%= f.text_field :title, placeholder: "Title" %><br>
+
+  <%= f.submit "Submit Link" %>
+<% end %>
+
 <% else %>
   <%= link_to "Sign in", login_path %> to View Links
 <% end %>

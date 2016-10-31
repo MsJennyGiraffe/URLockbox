@@ -11,11 +11,15 @@ RSpec.feature "view links" do
 
     expect(current_path).to eq(links_path)
     expect(page).to_not have_content("Sign in to View Links")
+    expect(page).to have_content("Url")
+    expect(page).to have_content("Title")
   end
-  
+
   scenario "a nonlogged in user cannot view links" do
     visit "/links"
 
     expect(page).to have_content("Sign in to View Links")
+    expect(page).to_not have_content("Url")
+    expect(page).to_not have_content("Title")
   end
 end
