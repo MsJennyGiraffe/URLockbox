@@ -1,4 +1,5 @@
 class Link < ApplicationRecord
-  validates :name, presence: true
-  validates :url, url: true, presence: true
+  validates :title, presence: true
+  validates :url, presence: true, :url => true
+  belongs_to :user
 end

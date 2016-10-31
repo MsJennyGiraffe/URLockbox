@@ -18,7 +18,7 @@ RSpec.feature "view links" do
   scenario "a nonlogged in user cannot view links" do
     visit "/links"
 
-    expect(page).to have_content("Sign in to View Links")
+    expect(page).to have_content("Log in to URLockBox")
     expect(page).to_not have_content("Url")
     expect(page).to_not have_content("Title")
   end

@@ -1,6 +1,15 @@
-<% if current_user %>
+<div class="col-md-6">
+  <h4>Links Created</h4>
+  <% @links.each do |link| %>
+    <br>
+    <h5>URL: <%= link.url %></h5>
 
-  <p>Submit a link</p>
+    <h5>Title: <%= link.title %></h5>
+  <% end %>
+</div>
+
+<div class="col-md-6">
+  <h4>Submit a link</h4>
 
 <%= form_for :link, url: links_path do |f| %>
   <%= f.label :url, class: "text-center" %><br>
@@ -11,7 +20,4 @@
 
   <%= f.submit "Submit Link" %>
 <% end %>
-
-<% else %>
-  <%= link_to "Sign in", login_path %> to View Links
-<% end %>
+</div>
