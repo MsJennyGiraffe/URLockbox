@@ -1,8 +1,3 @@
-$( document ).ready(function() {
-  addEventListenerToReadButton();
-  addEventListenerToUnreadButton();
-});
-
 function addEventListenerToReadButton() {
   $(".urls").on("click", ".read-button", function() {
     var id = event.target.id.split("-")[0]
