@@ -18,6 +18,22 @@ class LinksController < ApplicationController
     redirect_to links_path
   end
 
+  def edit
+    @link = Link.find(params[:id])
+  end
+
+  def update
+    @link = Link.find(params[:id])
+    @link.update(link_params)
+    if @link.save
+      redirect_to links_path
+      flash[:success] = "Your link has been edited"
+    else
+      flash[:warning] = @link.errors.full_messages.join(", ")
+      redirect_to edit_link_path(@link)
+    end
+  end
+
   private
     def link_params
       params.require(:link).permit(:title, :url)
