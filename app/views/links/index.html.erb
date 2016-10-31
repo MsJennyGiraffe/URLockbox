@@ -5,17 +5,16 @@
     <% @links.each do |link| %>
       <br>
       <h5>Title: <%= link.title %></h5>
-      <br>
       <% if link.read %>
-        <h5>Read</h5>
         <h5><s>URL: <%= link.url %></s></h5>
         <button id="<%= link.id %>-read-button" class="unread-button">Mark as Unread</button>
       <% else %>
-        <h5>Not Read</h5>
         <h5>URL: <%= link.url %></h5>
         <button id="<%= link.id %>-read-button" class="read-button">Mark as Read</button>
         <br>
       <% end %>
+
+      <h5><%= link_to "Edit Link", edit_link_path(link)%></h5>
 
     <% end %>
   </div>

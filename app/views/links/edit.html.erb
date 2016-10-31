@@ -1,0 +1,9 @@
+<%= form_for (@link) do |f| %>
+  <%= f.label :url, class: "text-center" %><br>
+  <%= f.text_field :url, placeholder: @link.url %><br>
+
+  <%= f.label :title, "Title", class: "text-center" %><br>
+  <%= f.text_field :title, placeholder: @link.title %><br>
+
+  <%= f.submit "Edit Link" %>
+<% end %>
