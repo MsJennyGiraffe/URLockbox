@@ -1,7 +1,8 @@
 function addEventListenerToAlphaButton() {
   $(".alpha-sort").on("click", function() {
-    var results = sortCall("alpha")
-    
+    var response = sortCall("alpha")
+    console.log(response)
+    //returning undefined.
   })
 }
 
