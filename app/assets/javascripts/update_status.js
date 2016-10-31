@@ -4,22 +4,27 @@ $( document ).ready(function() {
 });
 
 function addEventListenerToReadButton() {
-  $(".read-button").on("click", function() {
+  $(".urls").on("click", ".read-button", function() {
     var id = event.target.id.split("-")[0]
-    console.log(event.target.innerHTML)
     event.target.innerHTML = "Mark as Unread"
     event.target.className = "unread-button"
     changeReadStatusForUrl(id, "read");
+    changeURL(id);
   })
 }
 
 function addEventListenerToUnreadButton() {
-  $(".unread-button").on("click", function() {
+  $(".urls").on("click", ".unread-button", function() {
     var id = event.target.id.split("-")[0]
     event.target.innerHTML = "Mark as Read"
     event.target.className = "read-button"
     changeReadStatusForUrl(id, "unread");
+    changeURL(id);
   })
+}
+
+function changeURL(id) {
+  console.log($(".link-" + id).toggleClass("strike"))
 }
 
 function changeReadStatusForUrl(id, status) {

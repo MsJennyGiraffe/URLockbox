@@ -4,24 +4,21 @@
   <div class="urls">
     <% @links.each do |link| %>
     <br>
-    <h5>Title: <%= link.title %></h5>
-    <!-- <% if link.read %>
-    <h5><s>URL: <%= link.url %></s></h5>
-    <button id="<%= link.id %>-read-button" class="unread-button">Mark as Unread</button>
-    <% else %>
-    <h5>URL: <%= link.url %></h5>
-    <button id="<%= link.id %>-read-button" class="read-button">Mark as Read</button>
-    <br>
-    <% end %> -->
+    <div class="url-<%= link.id %>">
+      <h5>Title: <%= link.title %></h5>
+      <% if link.read %>
+        <h5 class="link-<%= link.id %> strike">URL: <%= link.url %></h5>
+        <button id="<%= link.id %>-read-button" class="unread-button">Mark as Unread</button>
+      <% else %>
+      <h5>URL: <%= link.url %></h5>
+      <button id="<%= link.id %>-read-button" class="read-button">Mark as Read</button>
+      <br>
+      <% end %>
 
-    <h5>URL: <%= link.url %></h5>
-    READ:<%= link.read %>
-    <button id="<%= link.id %>-read-button" class="read-button">Mark as Read</button>
+      <h5><%= link_to "Edit Link", edit_link_path(link)%></h5>
 
-
-    <h5><%= link_to "Edit Link", edit_link_path(link)%></h5>
-
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
