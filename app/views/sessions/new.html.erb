@@ -1,0 +1,10 @@
+Log in to URLockBoc
+<%= form_for :session, url: login_path do |f| %>
+  <%= f.label :email, class: "text-center" %></br>
+  <%= f.text_field :email, placeholder: "example@email.com" %><br>
+
+  <%= f.label :password, "Password", class: "text-center" %><br>
+  <%= f.password_field :password, placeholder: "password" %><br>
+
+  <%= f.submit 'Submit' %>
+<% end %>
