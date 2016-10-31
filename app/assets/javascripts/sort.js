@@ -1,8 +1,6 @@
 function addEventListenerToAlphaButton() {
   $(".alpha-sort").on("click", function() {
     var response = sortCall("alpha")
-    console.log(response)
-    //returning undefined.
   })
 }
 
@@ -13,6 +11,23 @@ function sortCall(sortType) {
     dataType: "JSON",
     data: {
       sortType: sortType
+    },
+    success: function(response) {
+      renderResponse(response)
     }
   });
+}
+
+function renderResponse(response) {
+  for (i = 0; i < response.length; i++) {
+    appendLinkToPage(response[i])
+  }
+}
+
+function appendLinkToPage(link) {
+  $(".urls").append(createLinkHTML(link));
+}
+
+function createLinkHTML(link) {
+  return link.title + link.url
 }
