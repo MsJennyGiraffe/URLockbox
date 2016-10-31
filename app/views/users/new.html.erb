@@ -1,0 +1,14 @@
+Create an account with URLockBox
+
+<%= form_for :user, url: users_path do |f| %>
+  <%= f.label :email, class: "text-center" %><br>
+  <%= f.text_field :email, placeholder: "example@email.com" %><br>
+
+  <%= f.label :password, "Password", class: "text-center" %><br>
+  <%= f.password_field :password, placeholder: "password" %><br>
+
+  <%= f.label :password_confirmation, "Password", class: "text-center" %><br>
+  <%= f.password_field :password_confirmation, placeholder: "password" %>
+
+  <%= f.submit 'Submit' %>
+<% end %>
