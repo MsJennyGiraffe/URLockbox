@@ -1,0 +1,31 @@
+<div class="col-md-6">
+  <h4>Links Created</h4>
+  <% @links.each do |link| %>
+    <br>
+    <h5>URL: <%= link.url %></h5>
+
+    <h5>Title: <%= link.title %></h5>
+
+    <% if link.read %>
+      <h5>Read</h5>
+    <% else %>
+      <h5>Not Read</h5>
+    <% end %>
+
+    <button>Mark as Read</button>
+  <% end %>
+</div>
+
+<div class="col-md-6">
+  <h4>Submit a link</h4>
+
+<%= form_for :link, url: links_path do |f| %>
+  <%= f.label :url, class: "text-center" %><br>
+  <%= f.text_field :url, placeholder: "http://www.example.com" %><br>
+
+  <%= f.label :title, "Title", class: "text-center" %><br>
+  <%= f.text_field :title, placeholder: "Title" %><br>
+
+  <%= f.submit "Submit Link" %>
+<% end %>
+</div>
