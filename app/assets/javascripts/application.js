@@ -19,4 +19,6 @@ $( document ).ready(function() {
   addEventListenerToUnreadButton();
   addEventListenerToAlphaButton();
   addEventListenerToTextField();
+  addEventListenerToReadSort();
+  addEventListenerToUnreadSort();
 });

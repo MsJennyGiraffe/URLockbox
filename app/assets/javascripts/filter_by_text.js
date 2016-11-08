@@ -32,5 +32,4 @@ function searchUrls() {
     // .match(searchTerm)
     console.log(links[i])
   }
-
 }
