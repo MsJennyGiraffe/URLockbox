@@ -1,14 +1,15 @@
-Create an account with URLockBox
-
-<%= form_for :user, url: users_path do |f| %>
+<div class="col-md-6 col-md-offset-3">
+  <h3 class="text-center">Create an account with URLockBox</h3>
+  <%= form_for :user, url: users_path do |f| %>
   <%= f.label :email, class: "text-center" %><br>
-  <%= f.text_field :email, placeholder: "example@email.com" %><br>
+  <%= f.text_field :email, placeholder: "example@email.com", class: "form-control" %><br>
 
   <%= f.label :password, "Password", class: "text-center" %><br>
-  <%= f.password_field :password, placeholder: "password" %><br>
+  <%= f.password_field :password, placeholder: "password", class: "form-control" %><br>
 
   <%= f.label :password_confirmation, "Password", class: "text-center" %><br>
-  <%= f.password_field :password_confirmation, placeholder: "password" %>
+  <%= f.password_field :password_confirmation, placeholder: "password", class: "form-control" %>
 
-  <%= f.submit 'Submit' %>
-<% end %>
+  <%= f.submit 'Submit', class: "btn btn-info btn-block spacing" %>
+  <% end %>
+</div>
