@@ -1,10 +1,12 @@
-Log in to URLockBox
+<div class="col-md-6 col-md-offset-3">
+<h3 class="text-center">Log in to URLockBox</h3>
 <%= form_for :session, url: login_path do |f| %>
   <%= f.label :email, class: "text-center" %></br>
-  <%= f.text_field :email, placeholder: "example@email.com" %><br>
+  <%= f.text_field :email, placeholder: "example@email.com", class: "form-control" %><br>
 
-  <%= f.label :password, "Password", class: "text-center" %><br>
-  <%= f.password_field :password, placeholder: "password" %><br>
+  <%= f.label :password, "Password" %><br>
+  <%= f.password_field :password, placeholder: "password", class: "form-control" %><br>
 
-  <%= f.submit 'Submit' %>
+  <%= f.submit 'Submit', class: "btn btn-info btn-block" %>
 <% end %>
+</div>
