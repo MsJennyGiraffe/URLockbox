@@ -21,4 +21,24 @@ RSpec.feature "user can edit exisiting link" do
     expect(page).to_not have_content("http://www.example.com")
     expect(page).to have_content("http://www.newexample.com")
   end
+
+  scenario "a registered user can edit their own link only if the url is valid" do
+    visit "/"
+    click_link "Sign Up"
+    fill_in :user_email, with: "validuser@email.com"
+    fill_in :user_password, with: "password"
+    fill_in :user_password_confirmation, with: "password"
+    click_button "Submit"
+    fill_in :link_url, with: "http://www.example.com"
+    fill_in :link_title, with: "test"
+    click_button "Submit Link"
+
+    expect(page).to have_content("http://www.example.com")
+
+    click_link "Edit Link"
+    fill_in "link_url", with: "example.com"
+    click_button "Edit Link"
+
+    expect(page).to have_content("Url is not a valid URL")
+  end
 end

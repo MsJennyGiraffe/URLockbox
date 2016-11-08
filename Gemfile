@@ -16,6 +16,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem "validate_url"
 gem "responders"
+gem 'selenium-webdriver'
 
 group :development, :test do
   gem 'byebug', platform: :mri
