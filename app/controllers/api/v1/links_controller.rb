@@ -5,7 +5,9 @@ class Api::V1::LinksController < ApplicationController
     if params[:sortType] == "alpha"
       @links = current_user.links.order(title: :asc)
     elsif params[:sortType] == "read"
-      #sort by read
+      @links = current_user.links.where(read: true)
+    elsif params[:sortType] == "unread"
+      @links = current_user.links.where(read: false)
     else
       @links = Link.all
     end
