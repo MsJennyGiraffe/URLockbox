@@ -9,7 +9,7 @@ class Api::V1::LinksController < ApplicationController
     elsif params[:sortType] == "unread"
       @links = current_user.links.where(read: false)
     else
-      @links = Link.all
+      @links = current_user.links
     end
     respond_with @links
   end

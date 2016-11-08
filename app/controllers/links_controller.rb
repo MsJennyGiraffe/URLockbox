@@ -13,7 +13,7 @@ class LinksController < ApplicationController
     if @link.save
       flash[:success] = "Link was created."
     else
-      flash[:errors] = @link.errors.full_messages.join(", ")
+      flash[:warning] = @link.errors.full_messages.join(", ")
     end
     redirect_to links_path
   end
