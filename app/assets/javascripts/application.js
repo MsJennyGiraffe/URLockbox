@@ -18,4 +18,5 @@ $( document ).ready(function() {
   addEventListenerToReadButton();
   addEventListenerToUnreadButton();
   addEventListenerToAlphaButton();
+  addEventListenerToTextField();
 });

@@ -16,6 +16,9 @@
 
 <div class="col-md-10 col-md-offset-1">
   <h4 class="text-center spacing">Sorting Options</h4>
+
+  <input type="text" class="form-control" id ="text-field" placeholder="Type to Sort">
+
   <div class="col-md-4">
     <button class="alpha-sort btn btn-default btn-block">Alpha Sort</button>
   </div>
@@ -31,10 +34,10 @@
   <h4 class="text-center spacing">Links Created</h4>
   <div class="urls">
     <% @links.each do |link| %>
-    <div class="col-md-4">
+    <div class="col-md-4 url">
       <br>
       <div class="url-<%= link.id %>">
-        <h5>Title: <%= link.title %></h5>
+        <h5 class="title">Title: <%= link.title %></h5>
         <% if link.read %>
           <h5 class="link-<%= link.id %> strike">URL: <%= link.url %></h5>
           <button id="<%= link.id %>-read-button" class="unread-button btn btn-info btn-block">Mark as Unread</button>
