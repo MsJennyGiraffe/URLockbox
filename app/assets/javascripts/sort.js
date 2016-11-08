@@ -56,7 +56,7 @@ function isRead (link) {
     return (
       "<h5 class='link-" +
       link.id +
-      "strike'>URL:" +
+      " strike'>URL:" +
       link.url +
       "</h5>" +
       "<button id='" +
