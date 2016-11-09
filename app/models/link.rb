@@ -1,3 +1,5 @@
+require "open-uri"
+
 class Link < ApplicationRecord
   validates :title, presence: true
   validates :url, presence: true, :url => true
