@@ -1,35 +1,27 @@
-var responseArray = [];
-
 function addEventListenerToTextField() {
   $("#text-field").on("keydown", function(event) {
-    responseArray.push(event.key);
-    searchUrls();
+    getUrls();
   })
 }
 
-// function searchUrls() {
-//   // if class contains link or if class is title
-//   var titleClass = $(".title");
-//   var titleArray = []
-//   for (i = 0; i < titleClass.length; i++) {
-//     titleArray.push(titleClass[i].innerHTML.split("Title: ")[1])
-//   }
-//
-//   titleArray.forEach(function(title) {
-//     if (title.match(responseArray.join(""))) {
-//
-//
-//     }
-//   })
-//
-// }
+function getUrls() {
+  $.ajax({
+    url: "/api/v1/links",
+    method: "GET",
+    dataType: "JSON",
+    success: function(response) {
+      sortUrls(response);
+    }
+  });
+}
 
-function searchUrls() {
-  searchTerm = responseArray.join("")
-  var links = $(".url");
-  for (i = 0; i < links.length; i++) {
-  var url = $(links[i]).context
-    // .match(searchTerm)
-    console.log(links[i])
-  }
+function sortUrls(response) {
+  var filteredArray = [];
+  var userInput = $("#text-field").val();
+  response.forEach(function(urlObject) {
+    if (urlObject.title.includes(userInput) || urlObject.url.includes(userInput)) {
+      filteredArray.push(urlObject)
+    }
+  })
+  renderResponse(filteredArray)
 }
