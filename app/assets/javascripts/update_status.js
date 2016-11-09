@@ -19,7 +19,7 @@ function addEventListenerToUnreadButton() {
 }
 
 function changeURL(id) {
-  console.log($(".link-" + id).toggleClass("strike"))
+  $(".link-" + id).toggleClass("strike")
 }
 
 function changeReadStatusForUrl(id, status) {

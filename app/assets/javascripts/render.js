@@ -11,22 +11,20 @@ function appendLinkToPage(link) {
 
 function createLinkHTML(link) {
   return (
-    checkSiteName(link) +
-    checkSiteHeader(link) +
     "<div class='col-md-4'>" +
     "<br>" +
+    "<h4>" +
+    checkSiteName(link) +
+    "</h4>" +
+    "<h4>" +
+    checkSiteHeader(link) +
+    "</h4>" +
     "<div class='url-" +
     link.id +
     "'>" +
     "<h5> Title: " +
     link.title +
     "</h5>" +
-    "<p>" +
-    link.site_name +
-    "</p>" +
-    "<p>" +
-    link.h1 +
-    "</p>" +
     isRead(link) +
     "<h5>" +
     "<a href='links/" +
@@ -67,12 +65,19 @@ function isRead (link) {
 }
 
 function checkSiteName(link) {
-  if (!link.site_name === null)
-  return link.site_name;
+  if (!(link.site_name === null)) {
+    return link.site_name;
+  }
+  else {
+    return " ";
+  }
 }
 
 function checkSiteHeader(link) {
-  if (!link.h1 === null) {
+  if (!(link.h1 === null)) {
     return link.h1;
+  }
+  else {
+    return " ";
   }
 }
