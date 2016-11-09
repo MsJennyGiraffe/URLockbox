@@ -39,6 +39,12 @@ function createLinkHTML(link) {
     "<h5> Title: " +
     link.title +
     "</h5>" +
+    "<p>" +
+    link.site_name +
+    "</p>" +
+    "<p>" +
+    "</p>" +
+    link.h1 +
     isRead(link) +
     "<h5>" +
     "<a href='links/" +

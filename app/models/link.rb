@@ -10,4 +10,10 @@ class Link < ApplicationRecord
       self.read = false
     end
   end
+
+  def scrape(url)
+    doc = Nokogiri::HTML(open(url))
+    self.site_name = doc.at_css("title").text
+    self.h1 = doc.at_css("h1").text
+  end
 end
