@@ -13,7 +13,16 @@ class Link < ApplicationRecord
 
   def scrape(url)
     doc = Nokogiri::HTML(open(url))
-    self.site_name = doc.at_css("title").text
-    self.h1 = doc.at_css("h1").text
+    if doc.at_css("title").nil?
+      self.h1 = " "
+    else
+      self.site_name = doc.at_css("title").text
+    end
+
+    if doc.at_css("h1").nil?
+      self.h1 = " "
+    else
+      self.h1 = doc.at_css("h1").text
+    end
   end
 end

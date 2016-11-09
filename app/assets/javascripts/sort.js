@@ -43,8 +43,8 @@ function createLinkHTML(link) {
     link.site_name +
     "</p>" +
     "<p>" +
-    "</p>" +
     link.h1 +
+    "</p>" +
     isRead(link) +
     "<h5>" +
     "<a href='links/" +
