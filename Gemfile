@@ -17,6 +17,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "validate_url"
 gem "responders"
 gem 'selenium-webdriver'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'byebug', platform: :mri
