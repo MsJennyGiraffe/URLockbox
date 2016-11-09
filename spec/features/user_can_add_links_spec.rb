@@ -38,7 +38,7 @@ RSpec.feature "view links" do
     fill_in :link_url, with: "www.validurl.com"
     fill_in :link_title, with: "not super cool url"
     click_button("Submit Link")
-    
+
     expect(page).to have_content("Url is not a valid URL")
     within(".urls") do
       expect(page).to_not have_content("not super cool url")

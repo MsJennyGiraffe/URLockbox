@@ -36,10 +36,10 @@
     <% @links.each do |link| %>
     <div class="col-md-4 url">
       <br>
+      <h4><%= link.site_name %></h4>
+      <h4><%= link.h1 %></h4>
       <div class="url-<%= link.id %>">
         <h5 class="title">Title: <%= link.title %></h5>
-        <p><%= link.site_name %></p>
-        <p><%= link.h1 %></p>
         <% if link.read %>
           <h5 class="link-<%= link.id %> strike">URL: <%= link.url %></h5>
           <button id="<%= link.id %>-read-button" class="unread-button btn btn-info btn-block">Mark as Unread</button>

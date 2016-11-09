@@ -12,5 +12,16 @@ RSpec.feature "user can filter by typing", :js => true do
     expect(page).to have_content(link_one.title)
     expect(page).to have_content(link_two.title)
     expect(page).to have_content(link_three.title)
+
+    fill_in "text-field", with: "est"
+
+    expect(page).to have_content(link_one.title)
+    expect(page).to have_content(link_two.title)
+    expect(page).to_not have_content(link_three.title)
+
+    fill_in "text-field", with: "nothing"
+    expect(page).to have_content(link_three.title)
+    expect(page).to_not have_content(link_one.title)
+    expect(page).to_not have_content(link_two.title)
   end
 end
