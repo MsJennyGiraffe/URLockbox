@@ -9,7 +9,7 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(link_params)
-    @link.scrape(link_params[:url])
+    @link.scrape(link_params[:url]) if @link.valid?
     @link.user_id = current_user.id if current_user
     if @link.save
       flash[:success] = "Link was created."
